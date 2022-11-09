@@ -11,13 +11,7 @@ export function Button() {
 
   return (
     <>
-      <button
-        class="item button-ac for-hover"
-        id="clear"
-        onClick={() => clear("1")}
-      >
-        Test button
-      </button>
+      <button>Test button</button>
     </>
   );
 }

@@ -10,6 +10,29 @@ export function Input() {
     inputRef.current.value = f;
   };
 
+  const amallar = (symb) => {
+    inputRef.current.value += symb;
+    console.log("456");
+
+    // for (let i = 0; i < 5; i++) {
+    //   symbols[i].disabled = true;
+    //   symbols[i].classList.remove("for-hover");
+    // }
+  };
+
+  const calculate = () => {
+    if (inputRef.current.value !== "") {
+      inputRef.current.value = eval(inputRef.current.value);
+    }
+  };
+
+  const uchirish = () => {
+    inputRef.current.value = inputRef.current.value.slice(
+      0,
+      inputRef.current.value.length - 1
+    );
+  };
+
   return (
     <>
       <input type="text" className="item top" placeholder="0" ref={inputRef} />
@@ -20,10 +43,14 @@ export function Input() {
       >
         Clear
       </button>
-      <button class="item button-ac for-hover" id="bs">
+      <button
+        class="item button-ac for-hover"
+        id="bs"
+        onClick={() => uchirish("")}
+      >
         BS
       </button>
-      <button class="item symbol" disabled onclick="amallar('/')">
+      <button class="item symbol" onClick={() => amallar("/")}>
         /
       </button>
       <button class="item symbol" disabled onclick="amallar('*')">
@@ -32,7 +59,7 @@ export function Input() {
       <button class="item for-hover" onClick={() => showNumber("7")}>
         7
       </button>
-      <button class="item for-hover" oonClick={() => showNumber("8")}>
+      <button class="item for-hover" onClick={() => showNumber("8")}>
         8
       </button>
       <button class="item for-hover" onClick={() => showNumber("9")}>
@@ -63,7 +90,7 @@ export function Input() {
         3
       </button>
       <div class="test">
-        <button class="item button-ra" onclick="calculate()">
+        <button class="item button-ra" onClick={() => calculate()}>
           =
         </button>
       </div>

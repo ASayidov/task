@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+// let symbols = document.getElementById("symbol");
+
 export function Input() {
   const inputRef = useRef(null);
   const showNumber = (sym) => {
@@ -12,10 +14,9 @@ export function Input() {
 
   const amallar = (symb) => {
     inputRef.current.value += symb;
-    console.log("456");
 
     // for (let i = 0; i < 5; i++) {
-    //   symbols[i].disabled = true;
+    //   symbols[i].disabled = false;
     //   symbols[i].classList.remove("for-hover");
     // }
   };
@@ -53,7 +54,7 @@ export function Input() {
       <button class="item symbol" onClick={() => amallar("/")}>
         /
       </button>
-      <button class="item symbol" disabled onclick="amallar('*')">
+      <button class="item symbol" onClick={() => amallar("*")}>
         x
       </button>
       <button class="item for-hover" onClick={() => showNumber("7")}>
@@ -65,7 +66,7 @@ export function Input() {
       <button class="item for-hover" onClick={() => showNumber("9")}>
         9
       </button>
-      <button class="item symbol" disabled onclick="amallar('-')">
+      <button class="item symbol" onClick={() => amallar("-")}>
         -
       </button>
       <button class="item for-hover" onClick={() => showNumber("4")}>
@@ -77,7 +78,7 @@ export function Input() {
       <button class="item for-hover" onClick={() => showNumber("6")}>
         6
       </button>
-      <button class="item symbol" disabled onclick="amallar('+')">
+      <button class="item symbol" onClick={() => amallar("+")}>
         +
       </button>
       <button class="item for-hover" onClick={() => showNumber("1")}>
@@ -100,7 +101,7 @@ export function Input() {
       >
         0
       </button>
-      <button class="item symbol" disabled onclick="amallar('.')">
+      <button class="item symbol" onClick={() => amallar(".")}>
         .
       </button>
     </>

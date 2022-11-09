@@ -1,9 +1,8 @@
 import { useRef } from "react";
 
-// let symbols = document.getElementById("symbol");
-
 export function Input() {
   const inputRef = useRef(null);
+  const buttonRef = useRef(null);
   const showNumber = (sym) => {
     inputRef.current.value += sym;
   };
@@ -33,6 +32,16 @@ export function Input() {
       inputRef.current.value.length - 1
     );
   };
+
+  const btns = [
+    { id: 1, className: "item for-hover symbol", content: 1 },
+    { id: 2, className: "item for-hover symbol", content: 2 },
+    { id: 3, className: "item for-hover symbol", content: 3 },
+    { id: 4, className: "item for-hover symbol", content: 4 },
+    { id: 5, className: "item for-hover symbol", content: 5 },
+    { id: 6, className: "item for-hover symbol", content: 6 },
+  ];
+  const [id, className, content] = btns;
 
   return (
     <>

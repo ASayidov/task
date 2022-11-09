@@ -8,8 +8,8 @@ export function Input() {
     inputRef.current.value += sym;
   };
 
-  const clear = (f) => {
-    inputRef.current.value = f;
+  const clear = (del) => {
+    inputRef.current.value = del;
   };
 
   const amallar = (symb) => {

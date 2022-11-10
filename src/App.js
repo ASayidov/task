@@ -1,11 +1,20 @@
+import { useRef } from 'react';
 import './App.css';
 import { Input } from './Input';
 
 
+
+
 function App() {
+  const clear = (del) => {
+    inputRef.current.value = del;
+  };
+
   return (
     <div className='container'>
-      <Input />
+      <Input clear={clear} />
+
+
     </div>
   );
 }

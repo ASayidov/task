@@ -7,8 +7,8 @@ export function Input() {
     inputRef.current.value += sym;
   };
 
-  const clear = (del) => {
-    inputRef.current.value = del;
+  let clear = (d) => {
+    inputRef.current.value = d;
   };
 
   const amallar = (symb) => {
@@ -32,77 +32,125 @@ export function Input() {
       inputRef.current.value.length - 1
     );
   };
+  const btns = [
+    {
+      class: "item button-ac for-hover",
+      id: "clear",
+      text: "clear",
+      onClick: () => clear(""),
+    },
+    {
+      class: "item button-ac for-hover",
+      id: "clear",
+      text: "BS",
+      onClick: () => uchirish(""),
+    },
+    {
+      class: "item symbol",
+      id: "clear",
+      text: "/",
+      onClick: () => amallar("/"),
+    },
+    {
+      class: "item symbol",
+      id: "clear",
+      text: "*",
+      onClick: () => amallar("*"),
+    },
+    {
+      class: "item for-hover",
+      id: "clear",
+      text: "7",
+      onClick: () => showNumber("7"),
+    },
+    {
+      class: "item for-hover",
+      id: "clear",
+      text: "8",
+      onClick: () => showNumber("8"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "9",
+      onClick: () => showNumber("9"),
+    },
+    {
+      class: "item symbol",
+      id: "clear",
+      text: "-",
+      onClick: () => amallar("-"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "4",
+      onClick: () => showNumber("4"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "5",
+      onClick: () => showNumber("5"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "6",
+      onClick: () => showNumber("6"),
+    },
+    {
+      class: "item  symbol",
+      id: "clear",
+      text: "+",
+      onClick: () => amallar("+"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "1",
+      onClick: () => showNumber("1"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "2",
+      onClick: () => showNumber("2"),
+    },
+    {
+      class: "item  for-hover",
+      id: "clear",
+      text: "3",
+      onClick: () => showNumber("3"),
+    },
+    {
+      class: "item button-ra test",
+      id: "clear",
+      text: "=",
+      onClick: () => calculate("="),
+    },
+    {
+      class: "item  button-zero for-hover",
+      id: "clear",
+      text: "0",
+      onClick: showNumber("0"),
+    },
+    {
+      class: "item symbol",
+      id: "clear",
+      text: ".",
+      onClick: amallar("."),
+    },
+  ];
 
   return (
     <>
       <input type="text" className="item top" placeholder="0" ref={inputRef} />
-      <button
-        class="item button-ac for-hover"
-        id="clear"
-        onClick={() => clear("")}
-      >
-        Clear
-      </button>
-      <button
-        class="item button-ac for-hover"
-        id="bs"
-        onClick={() => uchirish("")}
-      >
-        BS
-      </button>
-      <button class="item symbol" onClick={() => amallar("/")}>
-        /
-      </button>
-      <button class="item symbol" onClick={() => amallar("*")}>
-        x
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("7")}>
-        7
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("8")}>
-        8
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("9")}>
-        9
-      </button>
-      <button class="item symbol" onClick={() => amallar("-")}>
-        -
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("4")}>
-        4
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("5")}>
-        5
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("6")}>
-        6
-      </button>
-      <button class="item symbol" onClick={() => amallar("+")}>
-        +
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("1")}>
-        1
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("2")}>
-        2
-      </button>
-      <button class="item for-hover" onClick={() => showNumber("3")}>
-        3
-      </button>
-      <div class="test">
-        <button class="item button-ra" onClick={() => calculate()}>
-          =
+      {btns.map((btn) => (
+        <button className={btn.class} onClick={btn.onClick}>
+          {btn.text}
         </button>
-      </div>
-      <button
-        class="item button-zero for-hover"
-        onClick={() => showNumber("0")}
-      >
-        0
-      </button>
-      <button class="item symbol" onClick={() => amallar(".")}>
-        .
-      </button>
+      ))}
     </>
   );
 }
